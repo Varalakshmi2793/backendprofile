@@ -8,18 +8,17 @@ const server = http.createServer((req, res) => {
   if (url === '/') {
     fs.readFile('message.txt', 'utf8', (err, data) => {
       let messages = '';
-      if (!err) {
+      if (data) {
         messages = data;
       }
 
       res.write('<html>');
       res.write('<head><title>Enter Message</title></head>');
       res.write('<body>');
-      res.write('<ul>');
       
-    res.write(`<li>${messages}</li>`);
+      
+    res.write(`<ul>${messages}</ul>`);
     
-      res.write('</ul>');
 
       res.write('<form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form>');
       res.write('</body>');
@@ -38,7 +37,6 @@ const server = http.createServer((req, res) => {
       const message = parsedBody.split('=')[1];
       fs.writeFile('message.txt', `${message}\n`, (err) => {
         if (err) {
-          res.writeHead(500, { 'Content-Type': 'text/plain' });
           return res.end('Error writing file');
         }
         res.statusCode = 302;
