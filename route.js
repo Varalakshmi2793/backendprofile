@@ -28,8 +28,8 @@ const requesthandler=(req,res)=>{
       msg.push(chunk);
     });
     return req.on('end', () => {
-      const parsedBody = Buffer.concat(msg).toString();
-      const message = parsedBody.split('=')[1];
+      const body = Buffer.concat(msg).toString();
+      const message = body.split('=')[1];
       fs.writeFile('message.txt', `${message}\n`, (err) => {
         if (err) {
           
@@ -43,4 +43,10 @@ const requesthandler=(req,res)=>{
   }
  }
 
- module.exports = requesthandler;
+ //module.exports = requesthandler;
+ //module.exports=  {
+  //  handler: requesthandler,
+  //  smartcode: "Welcome to Route code"
+  // }
+module.exports.handler=requesthandler;
+module.exports.smartcode="welcome to code";
