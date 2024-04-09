@@ -1,7 +1,5 @@
-const http = require('http');
-const fs = require('fs');
-
-const server = http.createServer((req, res) => {
+const fs=require('fs');
+const requesthandler=(req,res)=>{
   const url = req.url;
   const method = req.method;
 
@@ -15,11 +13,8 @@ const server = http.createServer((req, res) => {
       res.write('<html>');
       res.write('<head><title>Enter Message</title></head>');
       res.write('<body>');
-      
-      
-    res.write(`<ul>${messages}</ul>`);
-    
-
+           
+      res.write(`<ul>${messages}</ul>`);
       res.write('<form action="/message" method="POST"><input type="text" name="message"><button type="submit">Send</button></form>');
       res.write('</body>');
       res.write('</html>');
@@ -37,6 +32,7 @@ const server = http.createServer((req, res) => {
       const message = parsedBody.split('=')[1];
       fs.writeFile('message.txt', `${message}\n`, (err) => {
         if (err) {
+          
           return res.end('Error writing file');
         }
         res.statusCode = 302;
@@ -45,6 +41,6 @@ const server = http.createServer((req, res) => {
       });
     });
   }
-});
+ }
 
-server.listen(3075);
+ module.exports = requesthandler;
