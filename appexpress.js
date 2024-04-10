@@ -7,8 +7,7 @@ app.use((req, res, next)=>{
 });
 app.use((req, res, next)=>{
     console.log("In second middleware");
-    res.send('<h1>Hello to node JS </h1>');
+    res.send({message: "Welcome to Node JS"});
 
 });
-const server=http.createServer(app);
-server.listen(4005);
+app.listen(3000);
