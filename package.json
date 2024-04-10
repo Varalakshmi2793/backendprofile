@@ -5,12 +5,13 @@
   "main": "12d.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node chatapp.js",
-    "start-server": "node chatapp.js"
+    "start": "node appexpress.js",
+    "start-server": "node appexpress.js"
   },
   "author": "lakshmi",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.19.2",
     "nodemon": "^3.1.0"
   }
 }
