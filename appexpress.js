@@ -6,7 +6,7 @@ app.use((req, res, next)=>{
     next();
 });
 app.use((req, res, next)=>{
-    console.log("In second middleware");
+    //console.log("In second middleware");
     res.send({message: "Welcome to Node JS"});
 
 });
