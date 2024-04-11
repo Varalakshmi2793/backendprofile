@@ -14,7 +14,7 @@
             if (err) {
                 data = "No Chat exists";
             }
-            res.send(`${data}<form action="/" method="POST" onSubmit="document.getElementById('username').value=localStorage.getItem('username');">
+            res.send(`${data}<form action="/" method="post" onSubmit="document.getElementById('username').value=localStorage.getItem('username');">
                 <input type="text" name="message" id="message">
                 <input type="hidden" name="username" id="username">
                 <button type="submit">Send</button>
@@ -33,4 +33,4 @@
         res.redirect('/');
     });
 
-    app.listen(4099);
+    app.listen(2000);
