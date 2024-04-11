@@ -1,0 +1,7 @@
+lakshmi:undefined
+lakshmi:this is lakshmi
+lakshmi:hello
+lakshmi:hi hello
+vara:undefined
+lakshmi:hello
+lakshmi:this is lakshmi
