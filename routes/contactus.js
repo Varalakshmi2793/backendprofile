@@ -1,12 +1,10 @@
-const path=require('path')
+
 const express=require('express');
-const rootdir=require('../pathdir/path');
 const router=express.Router()
+const contactuscontroller=require("../controller/contact");
 
 
-router.get('/contactus', (req,res)=>{
-    res.sendFile(path.join(rootdir, '..', 'views','contact.html'))
-});
+router.get('/contactus', contactuscontroller.contactcontroller);
 
 
 module.exports=router;
